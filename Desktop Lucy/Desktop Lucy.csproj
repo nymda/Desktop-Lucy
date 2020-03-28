@@ -44,14 +44,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="lucyHandler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="lucyHandler.Designer.cs">
+      <DependentUpon>lucyHandler.cs</DependentUpon>
     </Compile>
+    <Compile Include="lucySpawn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lucySpawn.Designer.cs">
+      <DependentUpon>lucySpawn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lucySpeak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lucySpeak.Designer.cs">
+      <DependentUpon>lucySpeak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="payloads.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="lucyHandler.resx">
+      <DependentUpon>lucyHandler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lucySpawn.resx">
+      <DependentUpon>lucySpawn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lucySpeak.resx">
+      <DependentUpon>lucySpeak.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

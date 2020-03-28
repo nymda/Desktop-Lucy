@@ -1,6 +1,6 @@
 ﻿namespace Desktop_Lucy
 {
-    partial class Form1
+    partial class lucyHandler
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,29 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this._clock = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // _clock
+            // 
+            this._clock.Interval = 500;
+            this._clock.Tick += new System.EventHandler(this._clock_Tick);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(10, 10);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+        private System.Windows.Forms.Timer _clock;
     }
 }
 
