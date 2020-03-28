@@ -20,6 +20,7 @@ namespace Desktop_Lucy
             InitializeComponent();
         }
 
+        //main entrypoint
         public int lucyCounter { get; set; }
         public Random r = new Random { };
         public Point cursor;
@@ -59,8 +60,7 @@ namespace Desktop_Lucy
             createBitmaps();
 
             lucyCounter = 1;
-            lucySpawn l = new lucySpawn();
-            l.Show();
+            summonHer();
 
             _clock.Start();
 

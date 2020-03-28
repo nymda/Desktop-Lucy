@@ -12,19 +12,22 @@ namespace Desktop_Lucy
 {
     public partial class lucySpeak : Form
     {
-        public lucySpeak(string t)
+        public lucySpeak(string t, int sutime = 3000)
         {
             InitializeComponent();
             text = t;
+            suicideTime = sutime;
         }
 
         public string text;
-        public Font font = new Font("Lucida Console", 25);
+        public int suicideTime;
+        public Font font = new Font("Lucida Console", 20);
         public Pen thicc = new Pen(Color.Black, 3);
         public bool suicideOnNextTick = false;
 
         private void lucySpeak_Load(object sender, EventArgs e)
         {
+            _suicide.Interval = suicideTime;
             _suicide.Start();
 
             this.BackColor = Color.LimeGreen;
@@ -35,7 +38,7 @@ namespace Desktop_Lucy
 
             SizeF s = g.MeasureString(text, font);
             int sWidth = (int)s.Width;
-            int sHeight = (int)s.Height;
+            int sHeight = (int)s.Height + 4;
 
             g.Dispose();
 
@@ -45,7 +48,7 @@ namespace Desktop_Lucy
 
             g.FillRectangle(Brushes.White, 0, 0, sWidth, sHeight);
             g.FillRectangle(Brushes.White, 0, sHeight - 3, sWidth + 4, 3);
-            g.DrawString(text, font, Brushes.Black, 3, 3);
+            g.DrawString(text, font, Brushes.Black, 4, 5);
             Point p1 = new Point(1, 1);
             Point p2 = new Point(sWidth, 1);
             Point p3 = new Point(sWidth, sHeight - 5);

