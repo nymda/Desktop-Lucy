@@ -34,6 +34,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eatFaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._speachTimer = new System.Windows.Forms.Timer(this.components);
+            this._payloadTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,11 @@
             this._speachTimer.Interval = 60000;
             this._speachTimer.Tick += new System.EventHandler(this._speachTimer_Tick);
             // 
+            // _payloadTimer
+            // 
+            this._payloadTimer.Interval = 60000;
+            this._payloadTimer.Tick += new System.EventHandler(this._payloadTimer_Tick);
+            // 
             // lucySpawn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,5 +100,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem eatFaceToolStripMenuItem;
         private System.Windows.Forms.Timer _speachTimer;
+        private System.Windows.Forms.Timer _payloadTimer;
     }
 }
