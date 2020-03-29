@@ -95,7 +95,8 @@ namespace Desktop_Lucy
             _clock.Start();
 
             _speachTimer.Interval = ((lucyHandler)main).r.Next(60000, 120000);
-            _payloadTimer.Interval = ((lucyHandler)main).r.Next(60000, 120000);
+            //_payloadTimer.Interval = ((lucyHandler)main).r.Next(60000, 120000);
+            _payloadTimer.Interval = 2000;
 
             _speachTimer.Start();
             _payloadTimer.Start();
@@ -146,6 +147,7 @@ namespace Desktop_Lucy
         {
             p.activateRandomPayload();
             _payloadTimer.Interval = ((lucyHandler)main).r.Next(60000, 120000);
+            _payloadTimer.Stop();
         }
     }
 }

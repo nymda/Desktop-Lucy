@@ -20,6 +20,12 @@ namespace Desktop_Lucy
         public Random rnd = new Random();
         int _plcount = 2;
 
+        public void talk(string text, int suicideTime = 2000)
+        {
+            lucySpeak s = new lucySpeak(text, suicideTime);
+            s.Show();
+        }
+
         public int activateRandomPayload()
         {
             int usePayload = rnd.Next(0, _plcount);
@@ -40,6 +46,7 @@ namespace Desktop_Lucy
             int SW_HIDE = 0;
             int hWnd = FindWindow("Shell_TrayWnd", "");
             ShowWindow(hWnd, SW_HIDE);
+            talk("Yoink!");
             return 1;
         }
 
@@ -50,7 +57,7 @@ namespace Desktop_Lucy
                 Thread.CurrentThread.IsBackground = true;
                 Graphics g = Graphics.FromHwnd((IntPtr.Zero));
                 Rectangle resolution = Screen.PrimaryScreen.Bounds;
-                for (int i = 0; i < 100000; i++)
+                for (int i = 0; i < 10000; i++)
                 {
                     g.DrawIcon(SystemIcons.Error, rnd.Next(0, resolution.Width), rnd.Next(0, resolution.Height));
                 }
